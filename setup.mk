@@ -1,0 +1,3 @@
+PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
+PRODUCT_PACKAGE_OVERLAYS += external/chromium-webview/overlay
+PRODUCT_PACKAGES += WebViewGoogle
