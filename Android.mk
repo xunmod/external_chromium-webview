@@ -35,6 +35,10 @@ LOCAL_MODULE_TARGET_ARCH := arm arm64 x86
 my_src_arch := $(call get-prebuilt-src-arch,$(LOCAL_MODULE_TARGET_ARCH))
 LOCAL_SRC_FILES := prebuilt/$(my_src_arch)/WebViewGoogle.apk
 
-LOCAL_PREBUILT_JNI_LIBS := @lib/$(TARGET_ARCH_ABI)/libwebviewchromium.so
+LOCAL_PREBUILT_JNI_LIBS := \
+        @lib/$(TARGET_ARCH_ABI)/libwebviewchromium.so \
+        @lib/$(TARGET_ARCH_ABI)/libarcore_sdk_c.so \
+        @lib/$(TARGET_ARCH_ABI)/libchromium_android_linker.so \
+        @lib/$(TARGET_ARCH_ABI)/libcrashpad_handler_trampoline.so
 
 include $(BUILD_PREBUILT)
