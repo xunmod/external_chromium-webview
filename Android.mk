@@ -35,6 +35,14 @@ LOCAL_MODULE_TARGET_ARCH := arm arm64 x86
 my_src_arch := $(call get-prebuilt-src-arch,$(LOCAL_MODULE_TARGET_ARCH))
 LOCAL_SRC_FILES := prebuilt/$(my_src_arch)/WebViewGoogle.apk
 
+ifeq ($(TARGET_ARCH),arm) 
+    TARGET_ARCH_ABI := armeabi-v7a
+else ifeq ($(TARGET_ARCH),arm64) 
+    TARGET_ARCH_ABI := arm64-v8a
+else ifeq ($(TARGET_ARCH),x86) 
+    TARGET_ARCH_ABI := x86
+endif
+
 LOCAL_PREBUILT_JNI_LIBS := \
         @lib/$(TARGET_ARCH_ABI)/libwebviewchromium.so \
         @lib/$(TARGET_ARCH_ABI)/libarcore_sdk_c.so \
